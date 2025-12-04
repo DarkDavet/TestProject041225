@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     public float jumpHeight = 1.5f;
 
     private float verticalVelocity;
+    private Vector3 moveDirection;
 
     public void Init()
     {
@@ -29,23 +30,21 @@ public class PlayerMovement : MonoBehaviour
         float vertical = Input.GetAxis("Vertical");
         float horizontal = Input.GetAxis("Horizontal");
 
-        Vector3 move = transform.right * horizontal + transform.forward * vertical;
-        if (controller != null)
+        if (controller.isGrounded)
         {
-            if (controller.isGrounded)
-            {
-                verticalVelocity = -2f;
-                if (Input.GetButtonDown("Jump"))
-                {
-                    verticalVelocity = Mathf.Sqrt(jumpHeight * -2f * gravity);
-                }
-            }
-            else
-            {
-                verticalVelocity += gravity * Time.deltaTime;
-            }
+            moveDirection = transform.right * horizontal + transform.forward * vertical;
 
-            controller.Move((move * speed + Vector3.up * verticalVelocity) * Time.deltaTime);
-        }     
+            verticalVelocity = -2f;
+            if (Input.GetButtonDown("Jump"))
+            {
+                verticalVelocity = Mathf.Sqrt(jumpHeight * -2f * gravity);
+            }
+        }
+        else
+        {
+            verticalVelocity += gravity * Time.deltaTime;
+        }
+
+        controller.Move((moveDirection * speed + Vector3.up * verticalVelocity) * Time.deltaTime);
     }
 }
