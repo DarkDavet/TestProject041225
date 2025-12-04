@@ -469,6 +469,7 @@ MonoBehaviour:
   speed: 5
   gravity: -9.81
   jumpHeight: 1.5
+  rotationSpeed: 3
 --- !u!143 &637115143
 CharacterController:
   m_ObjectHideFlags: 0
