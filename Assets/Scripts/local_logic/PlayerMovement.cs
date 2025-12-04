@@ -14,7 +14,6 @@ public class PlayerMovement : MonoBehaviour
     public float rotationSpeed = 10f; 
 
     private float verticalVelocity;
-    private Vector3 moveDirection;
 
     public void Init()
     {
