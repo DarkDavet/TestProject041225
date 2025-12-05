@@ -10,8 +10,8 @@ public class UIHealthStatusWidget : MonoBehaviour, IWidget
     [SerializeField] private Image handeImage;
     public void InitWdget(int maxAmount)
     {
+        slider.value = 0;
         slider.maxValue = maxAmount;
-        slider.value = maxAmount;
     }
 
     public void UpdatedWidget(int amount)
