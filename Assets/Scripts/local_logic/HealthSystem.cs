@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,8 @@ public class HealthSystem : MonoBehaviour
     [SerializeField] private bool isPlayer;
 
     [SerializeField] private UIHealthStatusWidget uiHealthWidget;
+
+    public event Action OnDeadStatus;
 
     public void Init()
     {
@@ -24,9 +27,22 @@ public class HealthSystem : MonoBehaviour
         {
             if (isPlayer)
             {
-
+                OnDeadStatus?.Invoke();
             }
             Destroy(gameObject);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        switch (other.tag)
+        {
+            case "Obstacle":
+                OnDeadStatus?.Invoke();
+                break;
+            case "Projectile":
+                GetDamage(10);
+                break ;
         }
     }
 
