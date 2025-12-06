@@ -1,14 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class ShootingSystem : MonoBehaviour
+public class PlayerShootingSystem : MonoBehaviour, IShooting
 {
     public GameObject projectilePrefab;   
     public Transform firePoint;       
     public float projectileSpeed = 20f;
 
-    void Update()
+
+    private void Update()
     {
         if (Input.GetButtonDown("Fire1")) 
         {
@@ -16,7 +18,7 @@ public class ShootingSystem : MonoBehaviour
         }
     }
 
-    void Shoot()
+    public void Shoot()
     {
         GameObject bullet = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
     
