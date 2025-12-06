@@ -15,8 +15,8 @@ GameObject:
   - component: {fileID: 1708795444744259285}
   - component: {fileID: 7349963410027126627}
   m_Layer: 0
-  m_Name: Projectile
-  m_TagString: Untagged
+  m_Name: EnemyProjectile
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -147,6 +147,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _meshFilter: {fileID: 2450043147575480946}
-  tagProjectile: Player
+  tagProjectile: Enemy
   damage: 10
   lifeTime: 3
