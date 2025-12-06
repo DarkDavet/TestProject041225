@@ -1,16 +1,14 @@
 using LazySquirrelLabs.SphereGenerator.Generators;
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody))]
-public class Projectile : MonoBehaviour
+public class SpawnedObject : MonoBehaviour
 {
     public string tagProjectile;
     public int damage = 10;
     public float lifeTime = 3f;
+    public float speed = 3f;
     public bool isSphere = false;
 
     private MeshFilter _meshFilter;
@@ -23,12 +21,17 @@ public class Projectile : MonoBehaviour
             Mesh mesh = generator.Generate();
             _meshFilter = gameObject.GetComponent<MeshFilter>();
             _meshFilter.mesh = mesh;
-        }    
+        }
     }
 
     void Start()
     {
         Destroy(gameObject, lifeTime);
+    }
+
+    void Update()
+    {
+        transform.Translate(Vector3.forward * speed * Time.deltaTime);
     }
 
     void OnTriggerEnter(Collider other)
@@ -38,6 +41,5 @@ public class Projectile : MonoBehaviour
             HealthSystem health = other.gameObject.GetComponent<HealthSystem>();
             health?.GetDamage(damage);
         }
-        Destroy(gameObject);      
     }
 }

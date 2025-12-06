@@ -6,7 +6,6 @@ public class ObjectSpawner : MonoBehaviour, IShooting
 {
     public GameObject spawnObjectPrefab;
     public Transform spawnPoint;
-    public float spawnObjectSpeed = 20f;
     public float spawnInterval = 2f;
 
     private void Start()
@@ -26,8 +25,5 @@ public class ObjectSpawner : MonoBehaviour, IShooting
     public void Shoot()
     {
         GameObject spawnObject = Instantiate(spawnObjectPrefab, spawnPoint.position, spawnPoint.rotation);
-
-        Rigidbody rb = spawnObject.GetComponent<Rigidbody>();
-        rb.velocity = spawnPoint.forward * spawnObjectSpeed;
     }
 }
