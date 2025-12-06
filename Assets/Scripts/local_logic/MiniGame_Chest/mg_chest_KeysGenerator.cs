@@ -37,6 +37,7 @@ public class mg_chest_KeysGenerator : MonoBehaviour
             }
 
             key.GetComponent<Image>().color = chosenColor;
+            key.GetComponent<mg_chest_KeyDragSystem>().Init(mgManager, chosenColor);
         }
     }
 }

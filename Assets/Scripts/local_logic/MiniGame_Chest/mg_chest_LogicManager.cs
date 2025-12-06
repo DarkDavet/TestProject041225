@@ -11,20 +11,24 @@ public class mg_chest_LogicManager : MonoBehaviour
     [SerializeField] private Color[] lockColors;
 
     private Color currentLockColor;
+    private RectTransform lockRect;
     public Color LockColor { get => currentLockColor; private set => currentLockColor = value; }
+    public RectTransform LockRect { get => lockRect; private set => lockRect = value; }
 
+    
     private int correctKeysPlaced = 0;
 
     void Start()
     {
+        lockRect = GetComponent<RectTransform>();
         currentLockColor = lockColors[Random.Range(0, lockColors.Length)];
         lockImage.color = currentLockColor;
         UpdateCounter();
     }
 
-    public void AddKey(Color keyColor)
+    public bool AddKey(Color keyColor)
     {
-        if (keyColor == currentLockColor)
+        if (ColorUtility.ToHtmlStringRGB(keyColor) == ColorUtility.ToHtmlStringRGB(currentLockColor))
         {
             correctKeysPlaced++;
             UpdateCounter();
@@ -33,7 +37,9 @@ public class mg_chest_LogicManager : MonoBehaviour
             {
                 Win();
             }
+            return true;
         }
+        return false;
     }
 
     private void UpdateCounter()
