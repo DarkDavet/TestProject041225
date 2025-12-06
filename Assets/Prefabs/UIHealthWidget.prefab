@@ -172,6 +172,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8874941538462565734}
   - component: {fileID: 7631190441297708366}
+  - component: {fileID: 8517339138916934836}
   m_Layer: 0
   m_Name: UIHealthWidget
   m_TagString: Untagged
@@ -210,6 +211,19 @@ MonoBehaviour:
   slider: {fileID: 546753583186012799}
   fillImage: {fileID: 6410851694756895089}
   handeImage: {fileID: 3566365716209698588}
+--- !u!114 &8517339138916934836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4728758801730674562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c47a132aafa05ce48b79c6d3c298d848, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camera: {fileID: 0}
 --- !u!1 &5172582251723218065
 GameObject:
   m_ObjectHideFlags: 0
