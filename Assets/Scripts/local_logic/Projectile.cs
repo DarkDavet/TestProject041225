@@ -1,6 +1,7 @@
 using LazySquirrelLabs.SphereGenerator.Generators;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using UnityEngine;
 
@@ -26,11 +27,11 @@ public class Projectile : MonoBehaviour
         Destroy(gameObject, lifeTime);
     }
 
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag(tagProjectile))
+        if (other.gameObject.CompareTag(tagProjectile))
         {
-            HealthSystem health = collision.gameObject.GetComponent<HealthSystem>();
+            HealthSystem health = other.gameObject.GetComponent<HealthSystem>();
             health?.GetDamage(10);
         }
         Destroy(gameObject);

@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
 
     private float verticalVelocity;
 
-    public void Init()
+    private void Start()
     {
         controller = GetComponent<CharacterController>();
     }

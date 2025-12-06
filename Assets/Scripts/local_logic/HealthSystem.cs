@@ -12,15 +12,18 @@ public class HealthSystem : MonoBehaviour
 
     public event Action OnDeadStatus;
 
-    public void Init()
+    private void Start()
     {
+        playerSettings.CurrentHealth = playerSettings.MaxHealth;
         uiHealthWidget.InitWdget(playerSettings.MaxHealth);
         uiHealthWidget.UpdatedWidget(playerSettings.MaxHealth);
     }
 
     public void GetDamage(int damage)
     {
+        Debug.Log("Damage is gotten");
         playerSettings.CurrentHealth -= damage;
+        Debug.Log($"{playerSettings.CurrentHealth}");
         uiHealthWidget.UpdatedWidget(playerSettings.CurrentHealth);
         
         if (!isAlive())
@@ -35,14 +38,9 @@ public class HealthSystem : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        switch (other.tag)
+        if (other.tag == "Obstacle")
         {
-            case "Obstacle":
-                OnDeadStatus?.Invoke();
-                break;
-            case "Projectile":
-                GetDamage(10);
-                break ;
+            OnDeadStatus?.Invoke();
         }
     }
 
