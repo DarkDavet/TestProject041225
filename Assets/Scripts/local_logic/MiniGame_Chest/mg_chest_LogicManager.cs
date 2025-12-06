@@ -11,6 +11,8 @@ public class mg_chest_LogicManager : MonoBehaviour
     [SerializeField] private Color[] lockColors;
 
     private Color currentLockColor;
+    public Color LockColor { get => currentLockColor; private set => currentLockColor = value; }
+
     private int correctKeysPlaced = 0;
 
     void Start()
