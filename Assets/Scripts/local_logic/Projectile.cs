@@ -12,6 +12,7 @@ public class Projectile : MonoBehaviour
     public int damage = 10;
     public float lifeTime = 3f;
     public bool isSphere = false;
+    public bool isObstacle = false;
 
     private MeshFilter _meshFilter;
 
@@ -38,6 +39,9 @@ public class Projectile : MonoBehaviour
             HealthSystem health = other.gameObject.GetComponent<HealthSystem>();
             health?.GetDamage(damage);
         }
-        Destroy(gameObject);
+        if (!isObstacle)
+        {
+            Destroy(gameObject);
+        }       
     }
 }
