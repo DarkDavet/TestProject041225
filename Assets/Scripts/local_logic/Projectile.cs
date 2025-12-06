@@ -8,18 +8,22 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class Projectile : MonoBehaviour
 {
-    [SerializeField] private MeshFilter _meshFilter;
-
     public string tagProjectile;
-    public float damage = 10;
+    public int damage = 10;
     public float lifeTime = 3f;
-    
+    public bool isSphere = false;
+
+    private MeshFilter _meshFilter;
 
     private void Awake()
     {
-        SphereGenerator generator = new IcosphereGenerator(1, 0);
-        Mesh mesh = generator.Generate();
-        _meshFilter.mesh = mesh;
+        if (isSphere)
+        {
+            SphereGenerator generator = new IcosphereGenerator(1, 0);
+            Mesh mesh = generator.Generate();
+            _meshFilter = gameObject.GetComponent<MeshFilter>();
+            _meshFilter.mesh = mesh;
+        }    
     }
 
     void Start()
@@ -32,7 +36,7 @@ public class Projectile : MonoBehaviour
         if (other.gameObject.CompareTag(tagProjectile))
         {
             HealthSystem health = other.gameObject.GetComponent<HealthSystem>();
-            health?.GetDamage(10);
+            health?.GetDamage(damage);
         }
         Destroy(gameObject);
     }
