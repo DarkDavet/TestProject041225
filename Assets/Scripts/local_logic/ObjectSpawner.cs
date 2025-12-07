@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class ObjectSpawner : MonoBehaviour, IShooting
 {
+    [Header("Spawn Settings")]
     public GameObject spawnObjectPrefab;
     public Transform spawnPoint;
-    public float spawnInterval = 2f;
+
+    [Header("Interval Settings")]
+    public float minInterval = 1f;  
+    public float maxInterval = 3f;  
 
     private void Start()
     {
@@ -18,12 +22,14 @@ public class ObjectSpawner : MonoBehaviour, IShooting
         while (true)
         {
             Shoot();
-            yield return new WaitForSeconds(spawnInterval);
+
+            float randomInterval = Random.Range(minInterval, maxInterval);
+            yield return new WaitForSeconds(randomInterval);
         }
     }
 
     public void Shoot()
     {
-        GameObject spawnObject = Instantiate(spawnObjectPrefab, spawnPoint.position, spawnPoint.rotation);
+        Instantiate(spawnObjectPrefab, spawnPoint.position, spawnPoint.rotation);
     }
 }

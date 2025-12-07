@@ -7,7 +7,6 @@ public class SpawnedObject : MonoBehaviour
 {
     public string tagProjectile;
     public int damage = 10;
-    public float lifeTime = 3f;
     public float speed = 3f;
     public bool isSphere = false;
 
@@ -24,11 +23,6 @@ public class SpawnedObject : MonoBehaviour
         }
     }
 
-    void Start()
-    {
-        Destroy(gameObject, lifeTime);
-    }
-
     void Update()
     {
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
@@ -40,6 +34,10 @@ public class SpawnedObject : MonoBehaviour
         {
             HealthSystem health = other.gameObject.GetComponent<HealthSystem>();
             health?.GetDamage(damage);
+        }
+        if (other.gameObject.CompareTag("Blocker"))
+        {
+            Destroy(gameObject);
         }
     }
 }
