@@ -24,6 +24,7 @@ public class LocationController : MonoBehaviour
             {
                 maxWinPoints++;
                 areaController.Init();
+                areaController.OnAreaCompleted += GetWinPoint;
             }
         }
         Debug.Log($"Max win points in this location : {maxWinPoints}");
