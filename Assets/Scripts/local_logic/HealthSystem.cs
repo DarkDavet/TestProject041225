@@ -10,7 +10,8 @@ public class HealthSystem : MonoBehaviour
 
     [SerializeField] private UIHealthStatusWidget uiHealthWidget;
 
-    public event Action OnDeadStatus;
+    public event Action OnPlayerDeadStatus;
+    public event Action OnEnemyDeadStatus;
 
     private void Start()
     {
@@ -30,8 +31,9 @@ public class HealthSystem : MonoBehaviour
         {
             if (isPlayer)
             {
-                OnDeadStatus?.Invoke();
+                OnPlayerDeadStatus?.Invoke();
             }
+            OnEnemyDeadStatus?.Invoke();
             Destroy(gameObject);
         }
     }
@@ -40,7 +42,7 @@ public class HealthSystem : MonoBehaviour
     {
         if (other.tag == "Obstacle")
         {
-            OnDeadStatus?.Invoke();
+            OnPlayerDeadStatus?.Invoke();
         }
     }
 

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -18,10 +19,12 @@ public class mg_chest_LogicManager : MonoBehaviour
     
     private int correctKeysPlaced = 0;
 
+    public event Action OnMGWon;
+
     void Start()
     {
         lockRect = GetComponent<RectTransform>();
-        currentLockColor = lockColors[Random.Range(0, lockColors.Length)];
+        currentLockColor = lockColors[UnityEngine.Random.Range(0, lockColors.Length)];
         lockImage.color = currentLockColor;
         UpdateCounter();
     }
@@ -47,8 +50,8 @@ public class mg_chest_LogicManager : MonoBehaviour
         counterText.text = $"{correctKeysPlaced} / 3";
     }
 
-    private void Win()
+    public void Win()
     {
-        
+        OnMGWon?.Invoke();
     }
 }
