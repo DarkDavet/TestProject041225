@@ -1,10 +1,12 @@
 using LazySquirrelLabs.SphereGenerator.Generators;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class SpawnedObject : MonoBehaviour
 {
+    [SerializeField] private string objectName;
     public string tagProjectile;
     public int damage = 10;
     public float speed = 3f;
@@ -37,7 +39,7 @@ public class SpawnedObject : MonoBehaviour
         }
         if (other.gameObject.CompareTag("Blocker"))
         {
-            Destroy(gameObject);
+            PoolManager.Instance.ReleaseObject(objectName, gameObject);
         }
     }
 }

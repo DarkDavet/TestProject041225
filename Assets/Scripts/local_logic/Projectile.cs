@@ -3,11 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using UnityEditor;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
 public class Projectile : MonoBehaviour
 {
+    [SerializeField] private string objectName;
     public string tagProjectile;
     public int damage = 10;
     public float lifeTime = 3f;
@@ -38,6 +40,6 @@ public class Projectile : MonoBehaviour
             HealthSystem health = other.gameObject.GetComponent<HealthSystem>();
             health?.GetDamage(damage);
         }
-        Destroy(gameObject);      
+        PoolManager.Instance.ReleaseObject(objectName, gameObject);
     }
 }

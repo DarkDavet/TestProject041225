@@ -5,6 +5,7 @@ using UnityEngine;
 public class ObjectSpawner : MonoBehaviour, IShooting
 {
     [Header("Spawn Settings")]
+    public string objectName;
     public GameObject spawnObjectPrefab;
     public Transform spawnPoint;
 
@@ -30,6 +31,6 @@ public class ObjectSpawner : MonoBehaviour, IShooting
 
     public void Shoot()
     {
-        Instantiate(spawnObjectPrefab, spawnPoint.position, spawnPoint.rotation);
+        PoolManager.Instance.GetObject(objectName, transform.position, transform.rotation);
     }
 }
