@@ -17,27 +17,28 @@ public class mg_chest_KeysGenerator : MonoBehaviour
 
     private void GenerateKeys()
     {
-        Color lockColor = mgManager.LockColor;
         int totalKeys = 36;
-        int placedCorrect = 0;
+        List<Color> colors = new List<Color>();
 
-        for (int i = 0; i < totalKeys; i++)
+        for (int i = 0; i < 3; i++)
+            colors.Add(mgManager.LockColor);
+
+        for (int i = 3; i < totalKeys; i++)
+            colors.Add(keyColors[Random.Range(0, keyColors.Length)]);
+
+        for (int i = 0; i < colors.Count; i++)
+        {
+            Color temp = colors[i];
+            int randIndex = Random.Range(i, colors.Count);
+            colors[i] = colors[randIndex];
+            colors[randIndex] = temp;
+        }
+
+        foreach (Color c in colors)
         {
             GameObject key = Instantiate(keyPrefab, gridParent);
-            Color chosenColor;
-
-            if (placedCorrect < 3 && Random.Range(0, totalKeys - i) < (3 - placedCorrect))
-            {
-                chosenColor = lockColor;
-                placedCorrect++;
-            }
-            else
-            {
-                chosenColor = keyColors[Random.Range(0, keyColors.Length)];
-            }
-
-            key.GetComponent<Image>().color = chosenColor;
-            key.GetComponent<mg_chest_KeyDragSystem>().Init(mgManager, chosenColor);
+            key.GetComponent<Image>().color = c;
+            key.GetComponent<mg_chest_KeyDragSystem>().Init(mgManager, c);
         }
     }
 }
