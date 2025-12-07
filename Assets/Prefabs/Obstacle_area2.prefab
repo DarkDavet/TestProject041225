@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 1128774204817506261}
   - component: {fileID: 5950470416482056498}
   m_Layer: 0
-  m_Name: Obstacle
+  m_Name: Obstacle_area2
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -152,6 +152,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tagProjectile: Player
   damage: 1000
-  lifeTime: 5
-  speed: 3
+  speed: 4
   isSphere: 0
