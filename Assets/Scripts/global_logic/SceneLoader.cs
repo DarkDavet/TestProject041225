@@ -13,6 +13,12 @@ public class SceneLoader : MonoBehaviour
     {
         StartCoroutine(LoadAndStartMainMenu());
     }
+
+    public void RestartScene()
+    {
+        Scene currenScene = SceneManager.GetActiveScene();
+        SceneManager.SetActiveScene(currenScene);
+    }
     private IEnumerator LoadAndStartLevel1()
     {
         yield return Load(Scenes.LEVEL_1);
