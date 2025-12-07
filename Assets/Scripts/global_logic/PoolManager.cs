@@ -17,7 +17,7 @@ public class PoolManager : Singleton<PoolManager>
 
     public List<Pool> pools;
 
-    public void Init()
+    public void Start()
     {
         foreach (var pool in pools)
         {
