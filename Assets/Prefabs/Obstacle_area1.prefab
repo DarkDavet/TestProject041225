@@ -150,6 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e8c981c7e1bc574ea5b77f281035f79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectName: Obstacle_1
   tagProjectile: Player
   damage: 1000
   speed: 2

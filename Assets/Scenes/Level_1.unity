@@ -187,6 +187,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5608883067269629775, guid: 0a398bcff869e044c9b0ade652b5aaef,
         type: 3}
+      propertyPath: objectName
+      value: Obstacle_3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5608883067269629775, guid: 0a398bcff869e044c9b0ade652b5aaef,
+        type: 3}
       propertyPath: maxInterval
       value: 5
       objectReference: {fileID: 0}
@@ -195,6 +200,12 @@ PrefabInstance:
       propertyPath: minInterval
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5608883067269629775, guid: 0a398bcff869e044c9b0ade652b5aaef,
+        type: 3}
+      propertyPath: spawnObjectPrefab
+      value: 
+      objectReference: {fileID: 8882143793661932763, guid: 3b299dcc227814a4cb97ede9954c5017,
+        type: 3}
     - target: {fileID: 5649135442724399339, guid: 0a398bcff869e044c9b0ade652b5aaef,
         type: 3}
       propertyPath: m_Name
@@ -2359,6 +2370,66 @@ Transform:
   - {fileID: 1041396968}
   m_Father: {fileID: 130643577}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &455124599
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 455124601}
+  - component: {fileID: 455124600}
+  m_Layer: 0
+  m_Name: PoolManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &455124600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 455124599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f32ccf3d42481549a066d802de32642, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pools:
+  - tag: Obstacle_1
+    prefab: {fileID: 8882143793661932763, guid: be900170bf4925646aca3fbc92d19825,
+      type: 3}
+  - tag: Obstacle_2
+    prefab: {fileID: 8882143793661932763, guid: 9d58eb2fee726ab4c9b13e2d92af44f3,
+      type: 3}
+  - tag: Obstacle_3
+    prefab: {fileID: 8882143793661932763, guid: 3b299dcc227814a4cb97ede9954c5017,
+      type: 3}
+  - tag: PlayerProjectile
+    prefab: {fileID: 6696364558034056018, guid: 62283685eefad41418a64d61a6f31a67,
+      type: 3}
+  - tag: EnemyProjectile
+    prefab: {fileID: 6696364558034056018, guid: 84850b7517827f5499885b2aa8506405,
+      type: 3}
+--- !u!4 &455124601
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 455124599}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.305409, y: -37.97946, z: 68.45996}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &464083765
 GameObject:
   m_ObjectHideFlags: 0
@@ -4459,6 +4530,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5608883067269629775, guid: 0a398bcff869e044c9b0ade652b5aaef,
         type: 3}
+      propertyPath: objectName
+      value: Obstacle_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5608883067269629775, guid: 0a398bcff869e044c9b0ade652b5aaef,
+        type: 3}
       propertyPath: maxInterval
       value: 7
       objectReference: {fileID: 0}
@@ -4472,6 +4548,12 @@ PrefabInstance:
       propertyPath: spawnInterval
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 5608883067269629775, guid: 0a398bcff869e044c9b0ade652b5aaef,
+        type: 3}
+      propertyPath: spawnObjectPrefab
+      value: 
+      objectReference: {fileID: 8882143793661932763, guid: 9d58eb2fee726ab4c9b13e2d92af44f3,
+        type: 3}
     - target: {fileID: 5649135442724399339, guid: 0a398bcff869e044c9b0ade652b5aaef,
         type: 3}
       propertyPath: m_Name
@@ -5023,6 +5105,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5608883067269629775, guid: 0a398bcff869e044c9b0ade652b5aaef,
+        type: 3}
+      propertyPath: objectName
+      value: Obstacle_1
       objectReference: {fileID: 0}
     - target: {fileID: 5608883067269629775, guid: 0a398bcff869e044c9b0ade652b5aaef,
         type: 3}
@@ -5832,6 +5919,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5608883067269629775, guid: 0a398bcff869e044c9b0ade652b5aaef,
         type: 3}
+      propertyPath: objectName
+      value: Obstacle_3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5608883067269629775, guid: 0a398bcff869e044c9b0ade652b5aaef,
+        type: 3}
       propertyPath: maxInterval
       value: 5
       objectReference: {fileID: 0}
@@ -5840,6 +5932,12 @@ PrefabInstance:
       propertyPath: minInterval
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5608883067269629775, guid: 0a398bcff869e044c9b0ade652b5aaef,
+        type: 3}
+      propertyPath: spawnObjectPrefab
+      value: 
+      objectReference: {fileID: 8882143793661932763, guid: 3b299dcc227814a4cb97ede9954c5017,
+        type: 3}
     - target: {fileID: 5649135442724399339, guid: 0a398bcff869e044c9b0ade652b5aaef,
         type: 3}
       propertyPath: m_Name
@@ -8490,6 +8588,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5608883067269629775, guid: 0a398bcff869e044c9b0ade652b5aaef,
         type: 3}
+      propertyPath: objectName
+      value: Obstacle_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5608883067269629775, guid: 0a398bcff869e044c9b0ade652b5aaef,
+        type: 3}
       propertyPath: maxInterval
       value: 7
       objectReference: {fileID: 0}
@@ -8503,6 +8606,12 @@ PrefabInstance:
       propertyPath: spawnInterval
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 5608883067269629775, guid: 0a398bcff869e044c9b0ade652b5aaef,
+        type: 3}
+      propertyPath: spawnObjectPrefab
+      value: 
+      objectReference: {fileID: 8882143793661932763, guid: 9d58eb2fee726ab4c9b13e2d92af44f3,
+        type: 3}
     - target: {fileID: 5649135442724399339, guid: 0a398bcff869e044c9b0ade652b5aaef,
         type: 3}
       propertyPath: m_Name
@@ -8575,6 +8684,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5608883067269629775, guid: 0a398bcff869e044c9b0ade652b5aaef,
+        type: 3}
+      propertyPath: objectName
+      value: Obstacle_1
       objectReference: {fileID: 0}
     - target: {fileID: 5608883067269629775, guid: 0a398bcff869e044c9b0ade652b5aaef,
         type: 3}
@@ -9901,3 +10015,4 @@ SceneRoots:
   - {fileID: 263016850}
   - {fileID: 95248901}
   - {fileID: 537553663}
+  - {fileID: 455124601}

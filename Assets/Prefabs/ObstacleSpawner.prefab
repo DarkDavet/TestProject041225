@@ -45,10 +45,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db1ab29d75f2b314f94fa4cef69482b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectName: 
   spawnObjectPrefab: {fileID: 8882143793661932763, guid: be900170bf4925646aca3fbc92d19825,
     type: 3}
   spawnPoint: {fileID: 933435575279579483}
-  spawnInterval: 2
+  minInterval: 1
+  maxInterval: 3
 --- !u!1 &8178370860396206208
 GameObject:
   m_ObjectHideFlags: 0
