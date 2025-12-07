@@ -10,6 +10,10 @@ public class mg_chest_KeysGenerator : MonoBehaviour
     [SerializeField] private Color[] keyColors;
     [SerializeField] private mg_chest_LogicManager mgManager;
 
+    private const int totalKeys = 36;
+    private const int requiredLockKeys = 3;
+
+
     void Start()
     {
         GenerateKeys();
@@ -17,28 +21,37 @@ public class mg_chest_KeysGenerator : MonoBehaviour
 
     private void GenerateKeys()
     {
-        int totalKeys = 36;
+        if (keyColors == null || keyColors.Length == 0)
+        {
+            Debug.LogError("KeyColors array is empty!");
+            return;
+        }
+
         List<Color> colors = new List<Color>();
 
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < requiredLockKeys; i++)
             colors.Add(mgManager.LockColor);
 
-        for (int i = 3; i < totalKeys; i++)
-            colors.Add(keyColors[Random.Range(0, keyColors.Length)]);
+        for (int i = requiredLockKeys; i < totalKeys; i++)
+        {
+            Color randomColor = keyColors[Random.Range(0, keyColors.Length)];
+            colors.Add(randomColor);
+        }
 
         for (int i = 0; i < colors.Count; i++)
         {
-            Color temp = colors[i];
             int randIndex = Random.Range(i, colors.Count);
-            colors[i] = colors[randIndex];
-            colors[randIndex] = temp;
+            (colors[i], colors[randIndex]) = (colors[randIndex], colors[i]);
         }
 
         foreach (Color c in colors)
         {
             GameObject key = Instantiate(keyPrefab, gridParent);
-            key.GetComponent<Image>().color = c;
-            key.GetComponent<mg_chest_KeyDragSystem>().Init(mgManager, c);
+            var img = key.GetComponent<Image>();
+            if (img != null) img.color = c;
+
+            var dragSystem = key.GetComponent<mg_chest_KeyDragSystem>();
+            if (dragSystem != null) dragSystem.Init(mgManager, c);
         }
     }
 }

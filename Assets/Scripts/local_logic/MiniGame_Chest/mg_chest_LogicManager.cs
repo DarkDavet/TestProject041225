@@ -21,11 +21,16 @@ public class mg_chest_LogicManager : MonoBehaviour
 
     public event Action OnMGWon;
 
-    void Start()
+    private void Awake()
     {
         lockRect = GetComponent<RectTransform>();
         currentLockColor = lockColors[UnityEngine.Random.Range(0, lockColors.Length)];
         lockImage.color = currentLockColor;
+    }
+
+    void Start()
+    {
+        
         UpdateCounter();
     }
 
