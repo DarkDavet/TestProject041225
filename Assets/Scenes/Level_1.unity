@@ -4520,6 +4520,11 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6639379678450390169, guid: 8ed1e929d1477b44eb23a64746c4e862,
+        type: 3}
+      propertyPath: fireRate
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7857245104228533569, guid: 8ed1e929d1477b44eb23a64746c4e862,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9030,6 +9035,11 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6639379678450390169, guid: 8ed1e929d1477b44eb23a64746c4e862,
+        type: 3}
+      propertyPath: fireRate
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7857245104228533569, guid: 8ed1e929d1477b44eb23a64746c4e862,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9299,6 +9309,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9071684447188188008, guid: e05d1cec98425ae469edf27fcf912740,
+        type: 3}
+      propertyPath: projectileSpeed
+      value: 30
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3949652398097873687, guid: e05d1cec98425ae469edf27fcf912740, type: 3}
     - {fileID: 3190932192243283967, guid: e05d1cec98425ae469edf27fcf912740, type: 3}
@@ -9457,6 +9472,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4570545197635584910, guid: cdcba1ad26237394c9d18501d5f70c0e,
         type: 3}
+      propertyPath: objectsToHide.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4570545197635584910, guid: cdcba1ad26237394c9d18501d5f70c0e,
+        type: 3}
       propertyPath: objectsToShow.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -9465,6 +9485,16 @@ PrefabInstance:
       propertyPath: checkpoints.Array.data[0]
       value: 
       objectReference: {fileID: 1582395805}
+    - target: {fileID: 4570545197635584910, guid: cdcba1ad26237394c9d18501d5f70c0e,
+        type: 3}
+      propertyPath: objectsToHide.Array.data[0]
+      value: 
+      objectReference: {fileID: 1615248173}
+    - target: {fileID: 4570545197635584910, guid: cdcba1ad26237394c9d18501d5f70c0e,
+        type: 3}
+      propertyPath: objectsToHide.Array.data[1]
+      value: 
+      objectReference: {fileID: 921030448}
     - target: {fileID: 4570545197635584910, guid: cdcba1ad26237394c9d18501d5f70c0e,
         type: 3}
       propertyPath: objectsToShow.Array.data[0]
