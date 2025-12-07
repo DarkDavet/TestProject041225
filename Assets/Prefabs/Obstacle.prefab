@@ -152,6 +152,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tagProjectile: Player
   damage: 1000
-  lifeTime: 3
+  lifeTime: 5
   speed: 3
   isSphere: 0
