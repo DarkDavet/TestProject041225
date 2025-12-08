@@ -39,6 +39,7 @@ public class SpawnedObject : MonoBehaviour
         }
         if (other.gameObject.CompareTag("Blocker"))
         {
+            Debug.Log("Ssdsdsd");
             PoolManager.Instance.ReleaseObject(objectName, gameObject);
         }
     }

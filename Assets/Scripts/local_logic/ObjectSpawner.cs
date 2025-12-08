@@ -13,7 +13,7 @@ public class ObjectSpawner : MonoBehaviour, IShooting
     public float minInterval = 1f;  
     public float maxInterval = 3f;  
 
-    private void Start()
+    public void Init()
     {
         StartCoroutine(Spawn());
     }
