@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Chest : MonoBehaviour
 {
-    [SerializeField] private GameObject obj;
+    [SerializeField] private GameObject objToShow;
+    [SerializeField] private GameObject objToHide;
     private bool isPlayerNear = false;
 
     private void OnTriggerEnter(Collider other)
@@ -29,6 +30,7 @@ public class Chest : MonoBehaviour
 
     private void OnOpen()
     {
-        obj.SetActive(true);
+        objToShow.SetActive(true);
+        objToHide.SetActive(false);
     }
 }
