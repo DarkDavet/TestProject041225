@@ -6,10 +6,12 @@ using UnityEngine.SceneManagement;
 public class LocationController : MonoBehaviour
 {
     [SerializeField] private SceneLoader sceneLoader;
+    [SerializeField] private PoolManager poolManager;
+    [SerializeField] private ObjectSpawner[] spawners;
 
     [SerializeField] private AreaController[] areaController;
     [SerializeField] private HealthSystem playerHealthSystem;
-
+    [Header("After win logic:")]
     [SerializeField] private GameObject[] objectsToShow;
     [SerializeField] private GameObject[] objectsToHide;
 
@@ -18,6 +20,12 @@ public class LocationController : MonoBehaviour
 
     private void Start()
     {
+        poolManager.Init();
+        foreach (var spawner in spawners)
+        {
+            spawner.Init();
+        }
+
         foreach (AreaController areaController in areaController)
         {
             if (areaController != null)
